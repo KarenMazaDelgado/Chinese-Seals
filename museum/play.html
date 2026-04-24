@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Play Stamp</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/addons/p5.sound.min.js"></script>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="topbar">
+        <a class="btn" href="/">Camera</a>
+        <a class="btn" href="index.html">Home</a>
+        <div id="status"></div>
+        <button class="btn" id="restartBtn" type="button">Restart</button>
+      </div>
+
+      <div class="canvasWrap" id="canvasWrap"></div>
+    </main>
+
+    <script src="sketch.js"></script>
+    <script>
+      document.getElementById("restartBtn").addEventListener("click", () => {
+        window.location.reload();
+      });
+    </script>
+  </body>
+</html>
+

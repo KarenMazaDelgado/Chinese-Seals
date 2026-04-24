@@ -1,0 +1,24 @@
+{
+  "imagePath": "image-targets/guxi_converted_luminance.png",
+  "metadata": null,
+  "name": "stamp1",
+  "type": "PLANAR",
+  "properties": {
+    "left": 51,
+    "top": 0,
+    "width": 542,
+    "height": 722,
+    "isRotated": false,
+    "originalWidth": 644,
+    "originalHeight": 722
+  },
+  "resources": {
+    "originalImage": "guxi_converted_original.png",
+    "croppedImage": "guxi_converted_cropped.png",
+    "thumbnailImage": "guxi_converted_thumbnail.png",
+    "luminanceImage": "guxi_converted_luminance.png"
+  },
+  "created": 1776553408725,
+  "updated": 1776553408725
+}
+

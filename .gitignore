@@ -1,0 +1,10 @@
+# Scanner (8th Wall) build output
+/scanner/node_modules/
+/scanner/dist/
+
+# OS / tooling
+.DS_Store
+Thumbs.db
+
+# Dev SSL cache (webpack-dev-server)
+/scanner/node_modules/.cache/
