@@ -52,8 +52,8 @@ const config = {
           noErrorOnMissing: true,
         },
         {
-          from: path.resolve(rootPath, '..', 'museum'),
-          to: path.join(distPath, 'musesumStudies'),
+          from: path.resolve(rootPath, '..', 'frontend'),
+          to: path.join(distPath, 'frontend'),
           noErrorOnMissing: true,
         },
       ],
