@@ -5,11 +5,15 @@
 
 // default to stamp 1 so play.html with no "?stamp=" still works
 // if "?stamp=" exists we overwrite it in preload()
+
 let stampId = "stamp1";
 let strokes = [];
 let isComplete = false;
 
+let paperImg;
+
 function preload() {
+  paperImg = loadImage('bkgd.png');
   const params = new URLSearchParams(window.location.search);
   stampId = params.get("stamp") || "stamp1";
 
@@ -35,24 +39,57 @@ let completedStrokes = [];
 
 
 function setup() {
-  createCanvas(500, 500);
+  let cnv = createCanvas(500, 500);
+  cnv.parent('canvasWrap');
 
   for (let i = 0; i < strokes.length; i++) {
     completedStrokes.push(false);
   }
+
+  let sealNameEl = document.getElementById('sealName');
+  if (sealNameEl) {
+    if (stampId === 'stamp1') {
+      sealNameEl.innerText = '古希天子"Gu Xi TianZi"';
+    } else if (stampId === 'stamp2') {
+      sealNameEl.innerText = '欧阳玄印 "Ouyang Xuan Yin"';
+    } else if (stampId === 'stamp3') {
+      sealNameEl.innerText = '赵氏子昂 "Zhao Clan Zi\'ang"';
+    } else if (stampId === 'stamp4') {
+      sealNameEl.innerText = '子京珍秘 "Zi Jing Zhen Mi"';
+    } else if (stampId === 'stamp5') {
+      sealNameEl.innerText = '石渠宝笈 "Shiqu Baoji"';
+    }
+  }
 }
 
 function draw() {
-  background(245);
+  background(paperImg);
 
-  //update later for change shape based on stamp
-  // push();
-  // noFill();
-  // stroke(0);
-  // strokeWeight(10);
-  // stroke(184, 44, 39);
-  // circle(250, 250, 480);
-  // pop();
+  // change shape based on stamp
+  if (stampId === 'stamp1'){
+  push();
+  noFill();
+  strokeWeight(10);
+  stroke(184, 44, 39);
+  circle(250, 250, 480);
+  pop();
+  }else if (stampId === 'stamp2' || stampId === 'stamp3'){
+    push();
+    noFill();
+    strokeWeight(10);
+    stroke(184, 44, 39);
+    rect(20,20,460,460,50);
+    pop();
+
+  }else if (stampId === 'stamp4' || stampId === 'stamp5'){
+    push();
+    noFill();
+    strokeWeight(10);
+    stroke(184, 44, 39);
+    rect(50,15,400,470,50);
+    pop();
+  }
+  
 
   drawCompletedStrokes();
 
@@ -85,8 +122,8 @@ function drawCompletedStrokes() {
 //YELLOW GUIDE + START/END POINTS
 function drawCurrentGuide(strokeObj) {
   // guide path
-  drawStrokePath(strokeObj, color(255, 204, 0, 180), strokeObj.tolerance * 2, false);
-  drawStrokePath(strokeObj, color(184, 44, 39), 3, false);
+  drawStrokePath(strokeObj, color(242, 247, 168, 100), strokeObj.tolerance * 2, false);
+  drawStrokePath(strokeObj, color(184, 44, 39,220), 3, false);
 
   // start point
   let start = strokeObj.points[0];
@@ -95,17 +132,17 @@ function drawCurrentGuide(strokeObj) {
   push();
   noStroke();
 
-  fill(0, 200, 0);
+  fill(106, 158, 110);
   circle(start.x, start.y, 16);
   textSize(15);
   fill(0);
-  text('S', start.x -4, start.y - 15);
 
-  fill(200, 0, 0);
-  circle(end.x, end.y, 16);
+  fill(255);
+  strokeWeight(3);
+  stroke(200,0,0);
+  circle(end.x, end.y, 14);
   textSize(15);
   fill(0);
-  text('E', end.x - 4, end.y - 15);
   pop();
 
 }
@@ -124,14 +161,6 @@ function drawStrokePath(strokeObj, strokeCol, strokeWeightValue, showPoints = fa
     vertex(pt.x, pt.y);
   }
   endShape();
-
-  if (showPoints) {
-    fill(0);
-    noStroke();
-    for (let pt of strokeObj.points) {
-      circle(pt.x, pt.y, 6);
-    }
-  }
   pop();
 }
 
@@ -157,7 +186,7 @@ function mousePressed() {
   if (currentStrokeIndex >= strokes.length) return;
 
   // coordinate capture helper for finding points to trace for each stroke 
-  console.log(`{ x: ${mouseX}, y: ${mouseY} },`);
+  //console.log(`{ x: ${mouseX}, y: ${mouseY} },`);
   push();
   fill(255, 0, 0);
   noStroke();
@@ -189,7 +218,7 @@ function mouseDragged() {
     userStroke.push({ x: mouseX, y: mouseY });
   } else {
     //feedback here or allow to go outside??
-   // userStroke.push({ x: mouseX, y: mouseY });
+   userStroke.push({ x: mouseX, y: mouseY });
   }
 }
 
@@ -212,6 +241,82 @@ function mouseReleased() {
   } else {
     userStroke = [];
   }
+}
+
+//UPDATED TOUCH
+
+function touchStarted() {
+  if (currentStrokeIndex >= strokes.length) return;
+  if (touches.length === 0) return;
+
+  let touch = touches[0];
+  let touchX = touch.x;
+  let touchY = touch.y;
+
+  if (touchX < 0 || touchX > width || touchY < 0 || touchY > height) {
+    return; 
+  }
+
+  let currentStroke = strokes[currentStrokeIndex];
+  let start = currentStroke.points[0];
+
+  let d = dist(touchX, touchY, start.x, start.y);
+
+  if (d <= currentStroke.startTolerance) {
+    isDrawing = true;
+    strokeStartedCorrectly = true;
+    userStroke = [{ x: touchX, y: touchY }];
+  } else {
+    isDrawing = false;
+    strokeStartedCorrectly = false;
+    userStroke = [];
+  }
+
+  return false; 
+}
+
+function touchMoved() {
+  if (!isDrawing || currentStrokeIndex >= strokes.length) return;
+  if (touches.length === 0) return;
+
+  let touch = touches[0];
+  let touchX = touch.x;
+  let touchY = touch.y;
+
+  if (touchX < 0 || touchX > width || touchY < 0 || touchY > height) {
+    return;
+  }
+
+  let currentStroke = strokes[currentStrokeIndex];
+
+  if (pointNearStroke(touchX, touchY, currentStroke.points, currentStroke.tolerance)) {
+    userStroke.push({ x: touchX, y: touchY });
+  }
+
+  return false; 
+}
+
+function touchEnded() {
+  if (!isDrawing || currentStrokeIndex >= strokes.length) return;
+
+  isDrawing = false;
+
+  let currentStroke = strokes[currentStrokeIndex];
+  let result = validateStroke(userStroke, currentStroke);
+
+  if (result.success) {
+    completedStrokes[currentStrokeIndex] = true;
+    currentStrokeIndex++;
+    userStroke = [];
+
+    if (currentStrokeIndex >= strokes.length) {
+      finishAndReturnHome();
+    }
+  } else {
+    userStroke = [];
+  }
+
+  return false; 
 }
 
 function validateStroke(userPts, strokeObj) {

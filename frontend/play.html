@@ -5,20 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Play Stamp</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/lgd2ata.css">
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/addons/p5.sound.min.js"></script>
+    <style>
+      #sealName{
+        font-family: "chantal", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size:1.2em;
+        color: #402725;
+      }
+    </style>
+    
   </head>
   <body>
     <main class="wrap">
       <div class="topbar">
-        <a class="btn" href="/">Camera</a>
-        <a class="btn" href="index.html">Home</a>
+        <div class="topbar-nav">
+          <a class="btn" href="index.html">Home</a>
+        </div>
         <div id="status"></div>
-        <button class="btn" id="restartBtn" type="button">Restart</button>
+        <div class="topbar-right">
+          <a class="btn" href="/">Camera</a>
+        </div>
       </div>
 
-      <div class="canvasWrap" id="canvasWrap"></div>
+      <div class="content">
+        <h1>Trace the Seal</h1>
+        <p class="subtitle">Start at the filled green dot and follow the fading path to trace the seal!</p>
+        <div id="sealName"></div>
+        <div id="canvasWrap"></div>
+      </div>
+
+      <div class="bottom-actions">
+        <button class="btn" id="restartBtn" type="button">Restart</button>
+        <a class="btn" href="/">Learn More</a>
+      </div>
     </main>
 
     <script src="sketch.js"></script>
@@ -26,6 +50,7 @@
       document.getElementById("restartBtn").addEventListener("click", () => {
         window.location.reload();
       });
+
     </script>
   </body>
 </html>
