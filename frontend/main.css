@@ -13,7 +13,7 @@ body{
         gap: 40px;
         max-width: 1200px;
         margin: 0 auto;
-        width: 100%;
+        width: 95%;
         padding: 40px 30px;
       }
 
@@ -42,7 +42,7 @@ body{
       .image-container {
         width: 70%;
         overflow: hidden;
-        border-radius: 12px;
+        border-radius: 240px;
         margin-left:auto;
         margin-right:auto;
         margin-top:-20px;
@@ -79,16 +79,15 @@ body{
         grid-template-columns: 1fr;
         gap: 15px;
         padding: 25px;
-        background-color:#e8dfd1;
+        background-color:#c1b99f;
         border-radius: 12px;
-        border: 2px solid #402725;
       }
 
       .info-item {
         display: flex;
         flex-direction: column;
         gap: 5px;
-        border-bottom: 1px solid #5c4746;
+        border-bottom: 1px solid #908167;
         padding-bottom: 12px;
       }
 
@@ -100,7 +99,7 @@ body{
       .info-label {
         font-weight: 700;
         color: #402725;
-        font-size: 13px;
+        font-size: 1em;
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
@@ -148,8 +147,13 @@ body{
           grid-row: 3;
         }
 
+        .image-container {
+        width: 60%;
+        }
+
         h1 {
-          font-size: 32px;
+          font-size: 2.5em;
+          margin-top:45px;
           margin-bottom: 10px;
         }
 
@@ -163,12 +167,14 @@ body{
         }
       }
 
-      @media screen and (max-width: 420px) {
+      @media screen and (max-width: 460px) {
         h1 {
-          font-size: 24px;
+          margin-top:50px;
+          font-size: 1.8em;
         }
 
         .subtitle {
+          margin-top:-15px;
           font-size: 13px;
         }
 
@@ -178,15 +184,16 @@ body{
         }
 
         .info-list {
-          padding: 15px;
+          padding: 25px;
         }
 
-        .btn {
-          padding: 10px 18px;
-          font-size: 14px;
+        .image-container {
+        width: 60%;
         }
+
 
         .trace-button {
+          width: 60%;
           padding: 14px 20px;
           font-size: 16px;
         }
