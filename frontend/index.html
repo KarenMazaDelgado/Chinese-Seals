@@ -8,16 +8,54 @@
     <link rel="stylesheet" href="https://use.typekit.net/lgd2ata.css">
     
     <title>Stamps</title>
+    <style>
+      ul{
+        display:flex;
+        list-style-type: none;
+        justify-content: center;
+      }
+      li{
+        padding:10px;
+        margin: 10px;
+      }
+
+      img{
+        margin-top: 15px;
+        width:100%;
+        height:auto;
+      }
+
+      .subtitle{
+      margin:6px;
+      }
+
+
+    </style>
   </head>
   <body>
-    <h2>Choose a stamp</h2>
-    <p><a href="/">Open Camera Scanner</a></p>
+    <main class="'wrap">
+      <div class="topbar">
+        <div class="topbar-nav">
+          <a class="btn" href="index.html">Home</a>
+        </div>
+        <div id="status"></div>
+        <div class="topbar-right">
+          <a class="btn" href="/">Camera</a>
+        </div>
+      </div>
+
+    <h1 id="homeTitle"><span id="autumn">Autumn Colors</span> <br>on the Que and Hua Mountains</h1>
+    <p class="subtitle">Zhao Mengfu (1254–1322) <br>28.4 x 93.2 cm (National Palace Museum, Taipei)</p>
+
+    <img src="images/scroll.jpg">
+
+
     <ul>
-      <li><a href="play.html?stamp=stamp1">Stamp 1</a></li>
-      <li><a href="play.html?stamp=stamp2">Stamp 2</a></li>
-      <li><a href="play.html?stamp=stamp3">Stamp 3</a></li>
-      <li><a href="play.html?stamp=stamp4">Stamp 4</a></li>
-      <li><a href="play.html?stamp=stamp5">Stamp 5</a></li>
+      <li><a class="btn" href="play.html?stamp=stamp1">Stamp 1</a></li>
+      <li><a class="btn" href="play.html?stamp=stamp2">Stamp 2</a></li>
+      <li><a class="btn" href="play.html?stamp=stamp3">Stamp 3</a></li>
+      <li><a class="btn" href="play.html?stamp=stamp4">Stamp 4</a></li>
+      <li><a class="btn" href="play.html?stamp=stamp5">Stamp 5</a></li>
     </ul>
   </body>
 </html>

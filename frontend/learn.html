@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/lgd2ata.css">
+    
+    <title>Learn More About Seals</title>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="topbar">
+        <div class="topbar-nav">
+          <a class="btn" href="index.html">Home</a>
+        </div>
+        <div id="status"></div>
+        <div class="topbar-right">
+          <a class="btn" href="/">Camera</a>
+        </div>
+      </div>
+
+
+      <div >
+        <h1 id="stampTitle">古希天子 “Gu Xi Tianzi”</h1>
+        <p class="subtitle">“Son of Heaven, Rare since Antiquity”</p>
+      </div>
+
+
+      <div class="content-wrapper">
+
+        <div class="left-section">
+          <div class="image-container">
+            <img id="stampImage" src="images/guxi.png" alt="Seal Image" />
+          </div>
+          <button class="trace-button" id="traceBtn">Trace This Seal</button>
+        </div>
+
+   
+        <div class="right-section">
+
+          <div class="info-list">
+            <div class="info-item">
+              <span class="info-label">Owner</span>
+              <span class="info-value">The Qianlong Emperor (乾隆帝, 1711-1799)</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Dynasty</span>
+              <span class="info-value">Qing</span>
+            </div>
+             <div class="info-item">
+              <span class="info-label">Material</span>
+              <span class="info-value"> Carved from an antique jade axle-head</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Dimensions</span>
+              <span class="info-value" >4.5cm x 4.5cm</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Current Location</span>
+              <span class="info-value"> Smithsonian’s National Museum of Asian Art, Washington D.C <br> Palace Museum, Beijing</span>
+            </div>
+          </div>
+                </div>
+
+
+          <div class="description">
+            <h3>Historical Background: The Seal’s Origin</h3>
+            <p>The seal reading “古希天子” (Gu Xi Tianzi)—a deliberate play on the classical phrase gu xi (古稀), meaning “rare to reach seventy”—belongs to the Qianlong Emperor. It was created to mark the singular occasion of his seventieth birthday in 1780.
+            The physical seal itself is a remarkable object in its own right. According to the emperor’s own inscription recorded alongside it, the “Gu Xi Tianzi” circular seal was carved from an antique jade axle-head: the original jade piece was cut in two, one half fashioned into an archer’s thumb ring, the other shaped into the round seal. Qianlong noted that the seal was carved in the autumn of the 47th year of his reign (1782) and used specifically to authenticate calligraphy and paintings. The fact that it was fashioned from a repurposed antique object was entirely deliberate: in Qianlong’s aesthetics, ancient jade carried accumulated cultural authority, and using it for his most personal commemorative seal was itself a statement about the depth of his connection to Chinese antiquity.
+            </p>
+          </div>
+                     
+
+    </main>
+
+    <script>
+      function getStampIdFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get("stamp") || "stamp1";
+      }
+
+      function loadStampData() {
+        const stampId = getStampIdFromUrl();
+        const data = stampData[stampId];
+
+        document.getElementById("traceBtn").addEventListener("click", () => {
+          window.location.href = `play.html?stamp=${stampId}`;
+        });
+      }
+    </script>
+  </body>
+</html>
