@@ -79,8 +79,9 @@ body{
         grid-template-columns: 1fr;
         gap: 15px;
         padding: 25px;
-        background-color:#c1b99f;
+        background-color:#e8dfd1;
         border-radius: 12px;
+        border: 2px solid #402725;
       }
 
       .info-item {
