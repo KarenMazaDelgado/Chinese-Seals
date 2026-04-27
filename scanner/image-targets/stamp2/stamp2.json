@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/stamp2/stamp2_luminance.png",
+  "metadata": null,
+  "name": "stamp2",
+  "type": "PLANAR",
+  "properties": {
+    "left": 40,
+    "top": 0,
+    "width": 480,
+    "height": 640,
+    "isRotated": false,
+    "originalWidth": 559,
+    "originalHeight": 640
+  },
+  "resources": {
+    "originalImage": "stamp2/stamp2_original.png",
+    "croppedImage": "stamp2/stamp2_cropped.png",
+    "thumbnailImage": "stamp2/stamp2_thumbnail.png",
+    "luminanceImage": "stamp2/stamp2_luminance.png"
+  },
+  "created": 1777309666447,
+  "updated": 1777309666447
+}

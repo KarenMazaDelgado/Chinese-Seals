@@ -1207,6 +1207,142 @@
         3
       ]
     },
+    "2e52f86a-76f3-4ce6-9e0e-3e5696d2c3a8": {
+      "id": "2e52f86a-76f3-4ce6-9e0e-3e5696d2c3a8",
+      "position": [
+        0,
+        2,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        3,
+        3,
+        3
+      ],
+      "geometry": null,
+      "material": null,
+      "components": {
+        "8cb4ff41-56b2-46c4-a6f4-08a4d3b5d0d9": {
+          "id": "8cb4ff41-56b2-46c4-a6f4-08a4d3b5d0d9",
+          "name": "Redirect on Image Target Found",
+          "parameters": {
+            "imageTargetName": "stamp2",
+            "redirectUrl": "/frontend/play.html?stamp=stamp2"
+          }
+        }
+      },
+      "name": "Stamp2 Redirect",
+      "parentId": "6b515fd2-ee2b-475f-98f5-a6cc41ee2cdb",
+      "order": 5.787308473077543
+    },
+    "9b9c9f2d-3d27-4ad9-9cc8-0f6bb7402f8e": {
+      "id": "9b9c9f2d-3d27-4ad9-9cc8-0f6bb7402f8e",
+      "position": [
+        0,
+        2,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        3,
+        3,
+        3
+      ],
+      "geometry": null,
+      "material": null,
+      "components": {
+        "d1a1d0fd-3e78-4f5c-84b4-1ef6c42f6b23": {
+          "id": "d1a1d0fd-3e78-4f5c-84b4-1ef6c42f6b23",
+          "name": "Redirect on Image Target Found",
+          "parameters": {
+            "imageTargetName": "stamp3",
+            "redirectUrl": "/frontend/play.html?stamp=stamp3"
+          }
+        }
+      },
+      "name": "Stamp3 Redirect",
+      "parentId": "6b515fd2-ee2b-475f-98f5-a6cc41ee2cdb",
+      "order": 5.887308473077543
+    },
+    "e64b80ce-f64c-43f6-af78-417857ee7044": {
+      "id": "e64b80ce-f64c-43f6-af78-417857ee7044",
+      "position": [
+        0,
+        2,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        3,
+        3,
+        3
+      ],
+      "geometry": null,
+      "material": null,
+      "components": {
+        "c48d3789-1b74-4c33-a94d-72d7f15971f4": {
+          "id": "c48d3789-1b74-4c33-a94d-72d7f15971f4",
+          "name": "Redirect on Image Target Found",
+          "parameters": {
+            "imageTargetName": "stamp4",
+            "redirectUrl": "/frontend/play.html?stamp=stamp4"
+          }
+        }
+      },
+      "name": "Stamp4 Redirect",
+      "parentId": "6b515fd2-ee2b-475f-98f5-a6cc41ee2cdb",
+      "order": 5.987308473077543
+    },
+    "b6f4b41d-54bf-43be-a800-75a28daa26fb": {
+      "id": "b6f4b41d-54bf-43be-a800-75a28daa26fb",
+      "position": [
+        0,
+        2,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        3,
+        3,
+        3
+      ],
+      "geometry": null,
+      "material": null,
+      "components": {
+        "c5564cbe-c1b2-4d0d-8795-25a237f0a49d": {
+          "id": "c5564cbe-c1b2-4d0d-8795-25a237f0a49d",
+          "name": "Redirect on Image Target Found",
+          "parameters": {
+            "imageTargetName": "stamp5",
+            "redirectUrl": "/frontend/play.html?stamp=stamp5"
+          }
+        }
+      },
+      "name": "Stamp5 Redirect",
+      "parentId": "6b515fd2-ee2b-475f-98f5-a6cc41ee2cdb",
+      "order": 6.087308473077543
+    },
     "c93c08df-1d89-4e42-af5c-3f6959bfa608": {
       "id": "c93c08df-1d89-4e42-af5c-3f6959bfa608",
       "position": [

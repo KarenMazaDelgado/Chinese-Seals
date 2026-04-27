@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/stamp3/stamp3_luminance.png",
+  "metadata": null,
+  "name": "stamp3",
+  "type": "PLANAR",
+  "properties": {
+    "left": 56,
+    "top": 0,
+    "width": 480,
+    "height": 640,
+    "isRotated": false,
+    "originalWidth": 591,
+    "originalHeight": 640
+  },
+  "resources": {
+    "originalImage": "stamp3/stamp3_original.png",
+    "croppedImage": "stamp3/stamp3_cropped.png",
+    "thumbnailImage": "stamp3/stamp3_thumbnail.png",
+    "luminanceImage": "stamp3/stamp3_luminance.png"
+  },
+  "created": 1777309859584,
+  "updated": 1777309859584
+}

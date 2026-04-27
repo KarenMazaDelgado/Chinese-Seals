@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/stamp5/stamp5_luminance.png",
+  "metadata": null,
+  "name": "stamp5",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 2,
+    "width": 485,
+    "height": 647,
+    "isRotated": false,
+    "originalWidth": 485,
+    "originalHeight": 650
+  },
+  "resources": {
+    "originalImage": "stamp5/stamp5_original.png",
+    "croppedImage": "stamp5/stamp5_cropped.png",
+    "thumbnailImage": "stamp5/stamp5_thumbnail.png",
+    "luminanceImage": "stamp5/stamp5_luminance.png"
+  },
+  "created": 1777310184884,
+  "updated": 1777310184884
+}
