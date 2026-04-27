@@ -4,17 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" type="text/css" href="../main.css" />
     <link rel="stylesheet" href="https://use.typekit.net/lgd2ata.css">
     
     <title>Learn More About Seals</title>
+    <style>
+      .image-container{
+        border-radius: 240px;
+      }
+    </style>
   </head>
   <body>
     <main class="wrap">
       <div class="topbar">
         <div class="topbar-nav">
-          <a class="btn" href="index.html">Home</a>
+          <a class="btn" href="../index.html">Home</a>
         </div>
         <div id="status"></div>
         <div class="topbar-right">
@@ -33,9 +38,9 @@
 
         <div class="left-section">
           <div class="image-container">
-            <img id="stampImage" src="images/guxi.png" alt="Seal Image" />
+            <img id="stampImage" src="../images/guxi.png" alt="Seal Image" />
           </div>
-          <button class="trace-button" id="traceBtn">Trace This Seal</button>
+          <a class="trace-button" id="traceBtn" href="../play.html?stamp=stamp1">Trace This Seal</a>
         </div>
 
    
@@ -76,20 +81,5 @@
 
     </main>
 
-    <script>
-      function getStampIdFromUrl() {
-        const params = new URLSearchParams(window.location.search);
-        return params.get("stamp") || "stamp1";
-      }
-
-      function loadStampData() {
-        const stampId = getStampIdFromUrl();
-        const data = stampData[stampId];
-
-        document.getElementById("traceBtn").addEventListener("click", () => {
-          window.location.href = `play.html?stamp=${stampId}`;
-        });
-      }
-    </script>
   </body>
 </html>
