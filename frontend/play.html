@@ -41,7 +41,7 @@
 
       <div class="bottom-actions">
         <button class="btn" id="restartBtn" type="button">Restart</button>
-        <a class="btn" href=learn.html>Learn More</a>
+        <a class="btn" id="learnMoreLink" href="#">Learn More</a>
       </div>
     </main>
 
@@ -50,6 +50,10 @@
       document.getElementById("restartBtn").addEventListener("click", () => {
         window.location.reload();
       });
+
+      const params = new URLSearchParams(window.location.search);
+      stampId = params.get("stamp") || "stamp1";
+      document.getElementById("learnMoreLink").href = `learn/${stampId}.html`;
 
     </script>
   </body>
