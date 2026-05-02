@@ -16,6 +16,27 @@
         font-style: normal;
         font-size:1.2em;
         color: #402725;
+        margin-top:-10px;
+      }
+
+      #green{
+        color:green;
+      }
+
+      #dot{
+        width:15px;
+        height: 15px;
+        background-color:rgb(106, 158, 110);
+        border-radius:100px;
+        display:inline-block;
+      }
+
+      #path{
+        color:rgb(184, 44, 39);
+        text-decoration:underline;
+        text-decoration-thickness: 0.2em;
+         text-decoration-skip-ink: none;
+        text-decoration-color:rgb(184, 44, 39);
       }
     </style>
     
@@ -34,8 +55,9 @@
 
       <div class="content">
         <h1 id ="traceTitle">Trace the Seal</h1>
-        <p class="subtitle">Start at the filled green dot and follow the fading path to trace the seal!</p>
         <div id="sealName"></div>
+        <br>
+        <p class="subtitle">Start at the <span id="green">filled green dot</span>   <span id="dot"></span> and follow the <span id="path">red path</span> to trace the seal!</p>
         <div id="canvasWrap"></div>
       </div>
 
