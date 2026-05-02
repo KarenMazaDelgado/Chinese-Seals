@@ -119,6 +119,28 @@ body{
         font-size: var(--reading-font-size);
       }
 
+      .audio-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .audio-btn {
+      padding: 6px 10px;
+      border: 2px solid #402725;
+      background-color: #f5e6d3;
+      color: #402725;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: var(--reading-font-size);
+    }
+
+    .audio-btn:hover {
+      background-color: #402725;
+      color: #f5e6d3;
+    }
+
       .description {
         font-size: var(--reading-font-size);
         line-height: 1.8;

@@ -9,7 +9,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/addons/p5.sound.min.js"></script>
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
     <style>
+
+      #p5_loading {
+      display: none !important;
+    }
       #sealName{
         font-family: "chantal", sans-serif;
         font-weight: 600;
@@ -37,6 +45,14 @@
         text-decoration-thickness: 0.2em;
          text-decoration-skip-ink: none;
         text-decoration-color:rgb(184, 44, 39);
+      }
+
+      #loading{
+        text-align:center;
+        font-family: "chantal", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size:var(--reading-font-size);
       }
     </style>
     
@@ -66,7 +82,17 @@
         <div id="sealName"></div>
         <br>
         <p class="subtitle">Start at the <span id="green">filled green dot</span>   <span id="dot"></span> and follow the <span id="path">red path</span> to trace the seal!</p>
-        <div id="canvasWrap"></div>
+        <div id="canvasWrap">
+          <div id="loadingScreen">
+        <dotlottie-wc
+          src="https://lottie.host/45c27a83-e243-4525-b16d-c7cc7bcde5da/sV6alHE1d2.lottie"
+          style="width: 300px;height: 300px"
+          autoplay
+          loop
+        ></dotlottie-wc>  
+        <p id="loading">Loading...</p>
+  </div>
+        </div>
       </div>
 
       <div class="bottom-actions">

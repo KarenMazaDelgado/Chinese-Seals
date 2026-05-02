@@ -47,6 +47,12 @@ function setup() {
   let cnv = createCanvas(500, 500);
   cnv.parent('canvasWrap');
 
+  const loadingScreen = document.getElementById("loadingScreen");
+  if (loadingScreen) {
+    loadingScreen.style.display = "none";
+  }
+
+
   for (let i = 0; i < strokes.length; i++) {
     completedStrokes.push(false);
   }
