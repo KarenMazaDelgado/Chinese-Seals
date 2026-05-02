@@ -1,0 +1,4 @@
+# Cloudflare Pages: allow WebAR / camera / motion (8th Wall image targets + SLAM)
+# https://developers.cloudflare.com/pages/configuration/headers/
+/*
+  Permissions-Policy: accelerometer=(self), camera=(self), display-capture=(self), fullscreen=(self), gyroscope=(self), magnetometer=(self), microphone=(self), xr-spatial-tracking=(self)

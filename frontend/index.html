@@ -3,92 +3,229 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/lgd2ata.css">
-    
+    <link rel="stylesheet" href="https://use.typekit.net/lgd2ata.css" />
+
     <title>Stamps</title>
     <style>
-      ul{
-        display:flex;
-        list-style-type: none;
+      .subtitle {
+        margin: 6px;
+      }
+
+      /* Main scroll roadmap (index page) */
+      .scroll-inline {
+        width: 100%;
+        height: clamp(320px, 64vh, 680px);
+        margin-top: 12px;
+      }
+
+      .scroll-inline .scroll-roadmap-shell {
+        height: 100%;
+      }
+
+      .scroll-inline-hint {
+        text-align: center;
+        font-family: "shantell-sans-bouncy", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+        font-size: 14px;
+        color: #402725;
+        margin-top: 10px;
+        margin-bottom: 8px;
+      }
+
+      .scroll-roadmap-shell {
+        position: relative;
+        flex: 1;
+        min-height: 0;
+        width: 100%;
+      }
+
+      /* Non-clickable scroll hints (fading arrows) */
+      .scroll-hint {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: min(84px, 18vw);
+        z-index: 2;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 220ms ease;
+        display: flex;
+        align-items: center;
         justify-content: center;
-      }
-      li{
-        padding:10px;
-        margin: 10px;
-      }
-
-      img{
-        margin-top: 15px;
-        width:100%;
-        height:auto;
+        font-family: "chantal", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 44px;
+        color: rgba(245, 230, 211, 0.9);
+        text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
       }
 
-      #scrollBtn{
-        all: unset;
-        display: block;
-        cursor: pointer;
-      }
-
-      #scrollModal{
-        position: fixed;
+      .scroll-hint::before {
+        content: "";
+        position: absolute;
         inset: 0;
-        z-index: 9999;
-        display: none;
-        background: rgba(0,0,0,0.9);
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.55),
+          rgba(0, 0, 0, 0)
+        );
       }
 
-      #scrollModal.open{
-        display: block;
+      .scroll-hint span {
+        position: relative;
+        transform: translateY(-2px);
+        opacity: 0.9;
+        animation: hint-bob 1.35s ease-in-out infinite;
       }
 
-      #scrollModal .close{
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        padding: 10px 12px;
-        border-radius: 10px;
-        background: rgba(255,255,255,0.12);
-        color: #fff;
-        font: 600 14px/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      .scroll-hint.right::before {
+        background: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 0.55),
+          rgba(0, 0, 0, 0)
+        );
+      }
+
+      .scroll-hint.left {
+        left: 0;
+        padding-left: max(6px, env(safe-area-inset-left));
+      }
+
+      .scroll-hint.right {
+        right: 0;
+        padding-right: max(6px, env(safe-area-inset-right));
+      }
+
+      .scroll-roadmap-shell.hint-left .scroll-hint.left {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .scroll-roadmap-shell.hint-right .scroll-hint.right {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* Click/tap the visible hints to pan */
+      .scroll-hint {
         cursor: pointer;
-        user-select: none;
       }
 
-      #scrollModal img{
-        margin: 0;
+      .scroll-hint:active span {
+        transform: translateY(-2px) scale(0.98);
+      }
+
+      @keyframes hint-bob {
+        0%,
+        100% {
+          transform: translateY(-2px) translateX(0);
+          opacity: 0.85;
+        }
+        50% {
+          transform: translateY(-2px) translateX(6px);
+          opacity: 1;
+        }
+      }
+
+      .scroll-roadmap-viewport {
         position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 96vw;
-        max-height: 92vh;
-        width: auto;
-        height: auto;
+        inset: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-color: rgba(232, 201, 107, 0.6) rgba(0, 0, 0, 0.2);
       }
 
-      .subtitle{
-      margin:6px;
+      .scroll-roadmap-track {
+        position: relative;
+        display: inline-block;
+        height: 100%;
+      }
+
+      .scroll-roadmap-track img {
+        display: block;
+        height: 100%;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      .stamp-hotspot {
+        position: absolute;
+        left: var(--hx);
+        top: var(--hy);
+        transform: translate(-50%, -50%);
+        width: clamp(26px, 4.2vmin, 38px);
+        height: clamp(26px, 4.2vmin, 38px);
+        border-radius: 50%;
+        border: 2px solid #402725;
+        background: rgba(245, 230, 211, 0.92);
+        box-shadow:
+          0 0 0 2px rgba(245, 230, 211, 0.7),
+          0 0 20px rgba(245, 230, 211, 0.35);
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "chantal", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 12px;
+        line-height: 1;
+        color: #402725;
+        z-index: 1;
+        animation: hotspot-pulse 2.2s ease-in-out infinite;
+      }
+
+      .stamp-hotspot span {
+        pointer-events: none;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+      }
+
+      .stamp-hotspot:focus-visible {
+        outline: 3px solid #fff;
+        outline-offset: 3px;
+      }
+
+      @keyframes hotspot-pulse {
+        0%,
+        100% {
+          box-shadow:
+            0 0 0 2px rgba(245, 230, 211, 0.7),
+            0 0 14px rgba(245, 230, 211, 0.25);
+        }
+        50% {
+          box-shadow:
+            0 0 0 2px rgba(245, 230, 211, 0.85),
+            0 0 26px rgba(245, 230, 211, 0.55);
+        }
+      }
+
+      .quick-links-title {
+        text-align: center;
+        font-family: "shantell-sans-bouncy", sans-serif;
+        font-size: 1rem;
+        color: #402725;
+        margin-top: 8px;
       }
 
       @media screen and (max-width: 460px) {
-        ul{
-          flex-direction: column;
-          align-items: center;
-        }
-
-        li{
-          padding:5px;
-          margin:5px;
+        .scroll-hint {
+          width: min(72px, 22vw);
+          font-size: 38px;
         }
       }
-
-
     </style>
   </head>
   <body>
-    <main class="'wrap">
+    <main class="wrap">
       <div class="topbar">
         <div class="topbar-nav">
           <a class="btn" href="index.html">Home</a>
@@ -99,43 +236,142 @@
         </div>
       </div>
 
-    <h1 id="homeTitle"><span id="autumn">Autumn Colors</span> <br>on the Que and Hua Mountains</h1>
-    <p class="subtitle">Zhao Mengfu (1254–1322) <br>28.4 x 93.2 cm (National Palace Museum, Taipei)</p>
+      <h1 id="homeTitle"><span id="autumn">Autumn Colors</span> <br />on the Que and Hua Mountains</h1>
+      <p class="subtitle">
+        Zhao Mengfu (1254–1322) <br />28.4 x 93.2 cm (National Palace Museum, Taipei)
+      </p>
 
-    <button id="scrollBtn" aria-label="Expand image">
-      <img src="images/scroll.jpg" alt="Scroll image (tap to expand)">
-    </button>
+      <div class="scroll-inline" aria-label="Handscroll roadmap">
+        <div class="scroll-roadmap-shell" id="scrollShell">
+          <div class="scroll-hint left" role="button" tabindex="0" aria-label="Pan left">
+            <span>‹</span>
+          </div>
+          <div class="scroll-hint right" role="button" tabindex="0" aria-label="Pan right">
+            <span>›</span>
+          </div>
+          <div class="scroll-roadmap-viewport" id="scrollViewport">
+            <div class="scroll-roadmap-track" id="scrollTrack">
+              <img id="scrollImg" src="images/scroll.jpg" alt="Handscroll roadmap. Tap a seal to learn more." />
+              <a
+                class="stamp-hotspot"
+                style="--hx: 29.83%; --hy: 27.54%"
+                href="play.html?stamp=stamp3"
+                title="Go to Stamp 3 tracing"
+                ><span>1</span></a
+              >
+              <a
+                class="stamp-hotspot"
+                style="--hx: 3.10%; --hy: 33.52%"
+                href="play.html?stamp=stamp4"
+                title="Go to Stamp 4 tracing"
+                ><span>2</span></a
+              >
+              <a
+                class="stamp-hotspot"
+                style="--hx: 7.19%; --hy: 93.73%"
+                href="play.html?stamp=stamp2"
+                title="Go to Stamp 2 tracing"
+                ><span>3</span></a
+              >
+              <a
+                class="stamp-hotspot"
+                style="--hx: 82.84%; --hy: 26.34%"
+                href="play.html?stamp=stamp5"
+                title="Go to Stamp 5 tracing"
+                ><span>4</span></a
+              >
+              <a
+                class="stamp-hotspot"
+                style="--hx: 26.50%; --hy: 4.87%"
+                href="play.html?stamp=stamp1"
+                title="Go to Stamp 1 tracing"
+                ><span>5</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div id="scrollModal" role="dialog" aria-modal="true" aria-label="Expanded image">
-      <div class="close" role="button" tabindex="0" aria-label="Close">Close</div>
-      <img src="images/scroll.jpg" alt="Scroll image enlarged">
-    </div>
+      <p class="scroll-inline-hint">
+        Scroll from right to left. Tap a numbered seal to open its tracing page.
+      </p>
 
+      <script>
+        ;(function () {
+          const shell = document.getElementById('scrollShell')
+          const viewport = document.getElementById('scrollViewport')
+          const hintLeft = shell.querySelector('.scroll-hint.left')
+          const hintRight = shell.querySelector('.scroll-hint.right')
+          const trackImg = document.getElementById('scrollImg')
 
-    <ul>
-      <li><a class="btn" href="play.html?stamp=stamp1">Stamp 1</a></li>
-      <li><a class="btn" href="play.html?stamp=stamp2">Stamp 2</a></li>
-      <li><a class="btn" href="play.html?stamp=stamp3">Stamp 3</a></li>
-      <li><a class="btn" href="play.html?stamp=stamp4">Stamp 4</a></li>
-      <li><a class="btn" href="play.html?stamp=stamp5">Stamp 5</a></li>
-    </ul>
+          const scrollToStartRTL = () => {
+            // Right-to-left reading: start at the far RIGHT end.
+            const max = viewport.scrollWidth - viewport.clientWidth
+            viewport.scrollLeft = Math.max(0, max)
+          }
 
-    <script>
-      const btn = document.getElementById('scrollBtn')
-      const modal = document.getElementById('scrollModal')
-      const closeEl = modal.querySelector('.close')
+          const initScroll = () => {
+            requestAnimationFrame(() => {
+              scrollToStartRTL()
+              syncHints()
+              requestAnimationFrame(syncHints)
+            })
+          }
 
-      const open = () => modal.classList.add('open')
-      const close = () => modal.classList.remove('open')
+          trackImg.addEventListener('load', () => {
+            initScroll()
+          })
 
-      btn.addEventListener('click', open)
-      closeEl.addEventListener('click', close)
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) close()
-      })
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') close()
-      })
-    </script>
+          const panBy = (dir) => {
+            const amount = Math.max(160, Math.floor(viewport.clientWidth * 0.6))
+            viewport.scrollBy({ left: dir * amount, behavior: 'smooth' })
+          }
+
+          const syncHints = () => {
+            const { scrollLeft, scrollWidth, clientWidth } = viewport
+            const max = scrollWidth - clientWidth
+            shell.classList.toggle('hint-left', scrollLeft > 6)
+            shell.classList.toggle('hint-right', scrollLeft < max - 6)
+          }
+
+          // Initialize once on load (in case the image is already cached)
+          if (trackImg.complete) initScroll()
+
+          viewport.addEventListener('scroll', syncHints, { passive: true })
+          hintLeft.addEventListener('click', () => {
+            panBy(-1)
+          })
+          hintRight.addEventListener('click', () => {
+            panBy(1)
+          })
+          hintLeft.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              panBy(-1)
+            }
+          })
+          hintRight.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              panBy(1)
+            }
+          })
+          window.addEventListener('resize', () => {
+            syncHints()
+          })
+
+          window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+              e.preventDefault()
+              panBy(-1)
+            }
+            if (e.key === 'ArrowRight') {
+              e.preventDefault()
+              panBy(1)
+            }
+          })
+        })()
+      </script>
+    </main>
   </body>
 </html>

@@ -1343,6 +1343,176 @@
       "parentId": "6b515fd2-ee2b-475f-98f5-a6cc41ee2cdb",
       "order": 6.087308473077543
     },
+    "a2d40b1c-9d6a-4d44-9a0b-7cde4f2e5a01": {
+      "id": "a2d40b1c-9d6a-4d44-9a0b-7cde4f2e5a01",
+      "position": [
+        0,
+        2,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        3,
+        3,
+        3
+      ],
+      "geometry": null,
+      "material": null,
+      "components": {
+        "b7f4d2e7-6c2f-4f6a-8b6d-9b6b2b9a1c11": {
+          "id": "b7f4d2e7-6c2f-4f6a-8b6d-9b6b2b9a1c11",
+          "name": "Redirect on Image Target Found",
+          "parameters": {
+            "imageTargetName": "stamp1irl",
+            "redirectUrl": "/frontend/play.html?stamp=stamp1"
+          }
+        }
+      },
+      "name": "Stamp1 IRL Redirect",
+      "parentId": "6b515fd2-ee2b-475f-98f5-a6cc41ee2cdb",
+      "order": 6.187308473077543
+    },
+    "9efbe4bb-9fd1-4b5a-8c1b-0b1d66d9c2a2": {
+      "id": "9efbe4bb-9fd1-4b5a-8c1b-0b1d66d9c2a2",
+      "position": [
+        0,
+        2,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        3,
+        3,
+        3
+      ],
+      "geometry": null,
+      "material": null,
+      "components": {
+        "15e8a0f3-4d8b-4b68-9f6d-3f5f0a4e2d21": {
+          "id": "15e8a0f3-4d8b-4b68-9f6d-3f5f0a4e2d21",
+          "name": "Redirect on Image Target Found",
+          "parameters": {
+            "imageTargetName": "stamp2irl",
+            "redirectUrl": "/frontend/play.html?stamp=stamp2"
+          }
+        }
+      },
+      "name": "Stamp2 IRL Redirect",
+      "parentId": "6b515fd2-ee2b-475f-98f5-a6cc41ee2cdb",
+      "order": 6.287308473077543
+    },
+    "c6a9f32f-0f44-4b7d-92b6-0ab0d6f9a3b3": {
+      "id": "c6a9f32f-0f44-4b7d-92b6-0ab0d6f9a3b3",
+      "position": [
+        0,
+        2,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        3,
+        3,
+        3
+      ],
+      "geometry": null,
+      "material": null,
+      "components": {
+        "2a7f4a91-3f5b-4a1f-8f31-7c0d9bfe0c31": {
+          "id": "2a7f4a91-3f5b-4a1f-8f31-7c0d9bfe0c31",
+          "name": "Redirect on Image Target Found",
+          "parameters": {
+            "imageTargetName": "stamp3irl",
+            "redirectUrl": "/frontend/play.html?stamp=stamp3"
+          }
+        }
+      },
+      "name": "Stamp3 IRL Redirect",
+      "parentId": "6b515fd2-ee2b-475f-98f5-a6cc41ee2cdb",
+      "order": 6.387308473077543
+    },
+    "0b81b8aa-918a-4a7a-bdd0-8f1e6c1c4d44": {
+      "id": "0b81b8aa-918a-4a7a-bdd0-8f1e6c1c4d44",
+      "position": [
+        0,
+        2,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        3,
+        3,
+        3
+      ],
+      "geometry": null,
+      "material": null,
+      "components": {
+        "bba1e0c9-3d2a-4f1f-9c1b-3e6a0d2b9a41": {
+          "id": "bba1e0c9-3d2a-4f1f-9c1b-3e6a0d2b9a41",
+          "name": "Redirect on Image Target Found",
+          "parameters": {
+            "imageTargetName": "stamp4irl",
+            "redirectUrl": "/frontend/play.html?stamp=stamp4"
+          }
+        }
+      },
+      "name": "Stamp4 IRL Redirect",
+      "parentId": "6b515fd2-ee2b-475f-98f5-a6cc41ee2cdb",
+      "order": 6.487308473077543
+    },
+    "6b4d5d22-2e90-4e4f-9b0b-7e4a6c9d5e55": {
+      "id": "6b4d5d22-2e90-4e4f-9b0b-7e4a6c9d5e55",
+      "position": [
+        0,
+        2,
+        -5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        3,
+        3,
+        3
+      ],
+      "geometry": null,
+      "material": null,
+      "components": {
+        "e52d3b3a-8e75-4b9f-a4c2-6e8c2f4d1a51": {
+          "id": "e52d3b3a-8e75-4b9f-a4c2-6e8c2f4d1a51",
+          "name": "Redirect on Image Target Found",
+          "parameters": {
+            "imageTargetName": "stamp5irl",
+            "redirectUrl": "/frontend/play.html?stamp=stamp5"
+          }
+        }
+      },
+      "name": "Stamp5 IRL Redirect",
+      "parentId": "6b515fd2-ee2b-475f-98f5-a6cc41ee2cdb",
+      "order": 6.587308473077543
+    },
     "c93c08df-1d89-4e42-af5c-3f6959bfa608": {
       "id": "c93c08df-1d89-4e42-af5c-3f6959bfa608",
       "position": [

@@ -56,6 +56,11 @@ const config = {
           to: path.join(distPath, 'frontend'),
           noErrorOnMissing: true,
         },
+        {
+          from: path.join(rootPath, 'public'),
+          to: distPath,
+          noErrorOnMissing: true,
+        },
       ],
     }),
     createVirtualEntryPlugin({

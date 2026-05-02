@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/stamp3irl/stamp3irl_luminance.png",
+  "metadata": null,
+  "name": "stamp3irl",
+  "type": "PLANAR",
+  "properties": {
+    "left": 71,
+    "top": 0,
+    "width": 488,
+    "height": 650,
+    "isRotated": false,
+    "originalWidth": 629,
+    "originalHeight": 650
+  },
+  "resources": {
+    "originalImage": "stamp3irl/stamp3irl_original.png",
+    "croppedImage": "stamp3irl/stamp3irl_cropped.png",
+    "thumbnailImage": "stamp3irl/stamp3irl_thumbnail.png",
+    "luminanceImage": "stamp3irl/stamp3irl_luminance.png"
+  },
+  "created": 1777669684936,
+  "updated": 1777669684936
+}

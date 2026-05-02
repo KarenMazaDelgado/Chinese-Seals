@@ -9,6 +9,7 @@
 let stampId = "stamp1";
 let strokes = [];
 let isComplete = false;
+let completeAtMs = null;
 
 let paperImg;
 
@@ -25,10 +26,62 @@ function preload() {
 
 function finishAndReturnHome() {
   isComplete = true;
-  // returning to index.html clears the canvas for the next stamp
+  completeAtMs = millis();
+
+  const overlay = document.getElementById('completionOverlay');
+  const traceTitle = document.getElementById('traceTitle');
+  const traceSubtitle = document.getElementById('traceSubtitle');
+  const celebrationShell = document.getElementById('celebrationShell');
+  const canvasWrap = document.getElementById('canvasWrap');
+  const playStage = document.getElementById('playStage');
+
+  // Center title + stamp together so “You did it!” stays visible above the seal.
+  const scrollTarget = playStage || canvasWrap;
+  if (scrollTarget && scrollTarget.scrollIntoView) {
+    scrollTarget.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'center' });
+  }
+
+  if (celebrationShell) {
+    celebrationShell.classList.add('celebration-active');
+  }
+
+  // Replace heading w/ bouncy letters on completion
+  if (traceTitle) {
+    traceTitle.classList.add('trace-complete');
+    const msg = 'You did it!';
+    traceTitle.innerHTML = msg
+      .split('')
+      .map((ch, i) =>
+        `<span class="ch" style="--i:${i}">${ch === ' ' ? '\u00A0' : ch}</span>`,
+      )
+      .join('');
+  }
+  if (traceSubtitle) {
+    traceSubtitle.classList.add('trace-complete-sub');
+    traceSubtitle.innerHTML =
+      'Redirecting<span class="dots" aria-hidden="true"></span>';
+  }
+
+  // Vignette + glow around the stamp 
+  if (overlay) {
+    const vignette = overlay.querySelector('.completion-vignette');
+    if (canvasWrap && vignette) {
+      const rect = canvasWrap.getBoundingClientRect();
+      vignette.style.top = `${rect.top}px`;
+      vignette.style.left = `${rect.left}px`;
+      vignette.style.width = `${rect.width}px`;
+      vignette.style.height = `${rect.height}px`;
+      vignette.style.borderRadius =
+        stampId === 'stamp1' ? '50%' : `${Math.min(52, Math.max(14, Math.round(rect.width * 0.1)))}px`;
+    }
+    overlay.classList.add('show');
+  }
+
+  // Pause on the completed stamp, then open this stamp's info page.
   setTimeout(() => {
-    window.location.href = "index.html";
-  }, 900);
+    const id = /^stamp[1-5]$/.test(stampId) ? stampId : "stamp1";
+    window.location.href = `learn/${id}.html`;
+  }, 1300);
 }
 
 let currentStrokeIndex = 0;
@@ -99,17 +152,6 @@ function draw() {
 
   drawUserStroke();
 
-  if (isComplete) {
-    push();
-    noStroke();
-    fill(0, 0, 0, 180);
-    rect(0, 0, width, height);
-    fill(255);
-    textAlign(CENTER, CENTER);
-    textSize(22);
-    text("Done! Returning…", width / 2, height / 2);
-    pop();
-  }
 }
 
 function drawCompletedStrokes() {
@@ -183,6 +225,7 @@ function drawUserStroke() {
 }
 
 function mousePressed() {
+  if (isComplete) return;
   if (currentStrokeIndex >= strokes.length) return;
 
   // coordinate capture helper for finding points to trace for each stroke 
@@ -210,6 +253,7 @@ function mousePressed() {
 }
 
 function mouseDragged() {
+  if (isComplete) return;
   if (!isDrawing || currentStrokeIndex >= strokes.length) return;
 
   let currentStroke = strokes[currentStrokeIndex];
@@ -223,6 +267,7 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
+  if (isComplete) return;
   if (!isDrawing || currentStrokeIndex >= strokes.length) return;
 
   isDrawing = false;
@@ -246,6 +291,7 @@ function mouseReleased() {
 //UPDATED TOUCH
 
 function touchStarted() {
+  if (isComplete) return;
   if (currentStrokeIndex >= strokes.length) return;
   if (touches.length === 0) return;
 
@@ -276,6 +322,7 @@ function touchStarted() {
 }
 
 function touchMoved() {
+  if (isComplete) return;
   if (!isDrawing || currentStrokeIndex >= strokes.length) return;
   if (touches.length === 0) return;
 
@@ -297,6 +344,7 @@ function touchMoved() {
 }
 
 function touchEnded() {
+  if (isComplete) return;
   if (!isDrawing || currentStrokeIndex >= strokes.length) return;
 
   isDrawing = false;
