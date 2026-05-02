@@ -2,6 +2,9 @@ body{
         font-family:arial;
     }
 
+  :root {
+  --reading-font-size: 16px;
+}
     .subtitle{
         padding-top:10px;
     }
@@ -61,7 +64,7 @@ body{
       .trace-button {
         width: 70%;
         padding: 16px 24px;
-        font-size: 18px;
+        font-size: var(--reading-font-size);
         font-family: "chantal", sans-serif;
         color: #f5e6d3;
         background-color: #402725;
@@ -106,18 +109,18 @@ body{
       .info-label {
         font-weight: 700;
         color: #402725;
-        font-size: 1em;
+        font-size: var(--reading-font-size);
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
 
       .info-value {
         color: #402725;
-        font-size: 15px;
+        font-size: var(--reading-font-size);
       }
 
       .description {
-        font-size: 16px;
+        font-size: var(--reading-font-size);
         line-height: 1.8;
         color: #402725;
         text-align: justify;
@@ -127,7 +130,6 @@ body{
         border: 2px solid #402725;
         grid-column: 1 / -1;
       }
-
 
       .description h4 {
         color: #402725;
@@ -218,6 +220,5 @@ body{
         .trace-button {
           width: 60%;
           padding: 14px 20px;
-          font-size: 16px;
         }
       }
