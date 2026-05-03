@@ -21,6 +21,11 @@ function preload() {
   // load the stroke list for the chosen stamp
   strokes = loadJSON(`stamps/${stampId}.json`, function(data){
     strokes = data;
+    
+    strokes.forEach(stroke => {
+    stroke.startTolerance *= 1.5;
+    stroke.endTolerance *= 1.2;
+  });
   });
 }
 
@@ -94,6 +99,12 @@ let completedStrokes = [];
 function setup() {
   let cnv = createCanvas(500, 500);
   cnv.parent('canvasWrap');
+
+  const loadingScreen = document.getElementById("loadingScreen");
+  if (loadingScreen) {
+    loadingScreen.style.display = "none";
+  }
+
 
   for (let i = 0; i < strokes.length; i++) {
     completedStrokes.push(false);
@@ -179,14 +190,25 @@ function drawCurrentGuide(strokeObj) {
   textSize(15);
   fill(0);
 
-  fill(255);
-  strokeWeight(3);
-  stroke(200,0,0);
-  circle(end.x, end.y, 14);
-  textSize(15);
-  fill(0);
+
+  let dirPoint = strokeObj.points[Math.max(0, strokeObj.points.length - 2)];
+  let angle = atan2(end.y - dirPoint.y, end.x - dirPoint.x);
+  drawDirectionTriangle(end.x, end.y, angle);
+  
   pop();
 
+}
+
+function drawDirectionTriangle(x, y, angle, size = 18) {
+  push();
+  translate(x, y);
+  rotate(angle);
+  fill(255);
+  stroke(200, 0, 0);
+  strokeWeight(3);
+  
+  triangle(size/2, 0, -size/2, -size/2, -size/2, size/2);
+  pop();
 }
 
 //the ACTUAL line

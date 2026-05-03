@@ -9,6 +9,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/addons/p5.sound.min.js"></script>
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
     <style>
       
       #celebrationShell #traceTitle,
@@ -155,6 +159,14 @@
         <div class="topbar-nav">
           <a class="btn" href="index.html">Home</a>
         </div>
+
+          <div class="text-size-controls">
+        <!-- <h4>Text Size:</h4> -->
+        <button class="size-btn" data-size="small">A-</button>
+        <button class="size-btn" data-size="medium">A</button>
+        <button class="size-btn" data-size="large">A+</button>
+      </div>
+
         <div id="status"></div>
         <div class="topbar-right">
           <a class="btn" href="/">Camera</a>
@@ -195,6 +207,7 @@
       document.getElementById("learnMoreLink").href = `learn/${stampId}.html`;
 
     </script>
+    <script src="learn/fontsize.js"></script>
   </body>
 </html>
 
