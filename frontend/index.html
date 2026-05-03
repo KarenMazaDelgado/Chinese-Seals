@@ -13,11 +13,17 @@
         margin: 6px;
       }
 
-      /* Main scroll roadmap (index page) */
+      /* Main scroll roadmap (index page) — full viewport width when outside .content */
       .scroll-inline {
         width: 100%;
+        max-width: none;
         height: clamp(320px, 64vh, 680px);
         margin-top: 12px;
+      }
+
+      .home-scroll-bleed.scroll-inline {
+        margin-left: 0;
+        margin-right: 0;
       }
 
       .scroll-inline .scroll-roadmap-shell {
@@ -31,8 +37,27 @@
         font-style: italic;
         font-size: 14px;
         color: #402725;
-        margin-top: 10px;
-        margin-bottom: 8px;
+        margin-top: 14px;
+        margin-bottom: 4px;
+      }
+
+      /* Match play.html: title sits in .content with same top padding */
+      .home-scroll-layout {
+        width: 100%;
+        max-width: 100%;
+        align-items: center;
+      }
+
+      .scroll-painting-desc {
+        max-width: min(38rem, 94vw);
+        margin: 12px auto 8px;
+        padding: 0 12px;
+        text-align: left;
+        font-family: "shantell-sans-bouncy", sans-serif;
+        font-weight: 400;
+        font-size: var(--reading-font-size);
+        line-height: 1.55;
+        color: #402725;
       }
 
       .scroll-roadmap-shell {
@@ -243,12 +268,14 @@
         </div>
       </div>
 
+      <div class="content home-scroll-layout">
       <h1 id="homeTitle"><span id="autumn">Autumn Colors</span> <br />on the Que and Hua Mountains</h1>
       <p class="subtitle">
         Zhao Mengfu (1254–1322) <br />28.4 x 93.2 cm (National Palace Museum, Taipei)
       </p>
+      </div>
 
-      <div class="scroll-inline" aria-label="Handscroll roadmap">
+      <div class="scroll-inline home-scroll-bleed" aria-label="Handscroll roadmap">
         <div class="scroll-roadmap-shell" id="scrollShell">
           <div class="scroll-hint left" role="button" tabindex="0" aria-label="Pan left">
             <span>‹</span>
@@ -268,16 +295,16 @@
               >
               <a
                 class="stamp-hotspot"
-                style="--hx: 3.10%; --hy: 33.52%"
-                href="play.html?stamp=stamp4"
-                title="Go to Stamp 4 tracing"
+                style="--hx: 7.19%; --hy: 93.73%"
+                href="play.html?stamp=stamp2"
+                title="Go to Stamp 2 tracing"
                 ><span>2</span></a
               >
               <a
                 class="stamp-hotspot"
-                style="--hx: 7.19%; --hy: 93.73%"
-                href="play.html?stamp=stamp2"
-                title="Go to Stamp 2 tracing"
+                style="--hx: 3.10%; --hy: 33.52%"
+                href="play.html?stamp=stamp4"
+                title="Go to Stamp 4 tracing"
                 ><span>3</span></a
               >
               <a
@@ -299,9 +326,15 @@
         </div>
       </div>
 
+      <div class="content home-scroll-layout">
       <p class="scroll-inline-hint">
         Scroll from right to left. Tap a numbered seal to open its tracing page.
       </p>
+
+      <p class="scroll-painting-desc">
+        The scene depicts the flatlands north of Jinan in Shandong province, China, where two mountains rise from a broad, low-lying wetland. On the right, the sharply peaked Mount Hua rises dramatically with a steep triangular silhouette rendered in deep blue-green mineral pigment. On the left, the softer, rounded Que Mountain sits lower and wider on the horizon. Between and around the two mountains stretches a vast, shallow body of water rendered in pale ink wash. Scattered across the middle ground are clusters of trees in varied autumn states.
+      </p>
+      </div>
 
       <script>
         ;(function () {

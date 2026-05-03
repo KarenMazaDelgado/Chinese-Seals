@@ -26,7 +26,7 @@
           "name": "Redirect on Image Target Found",
           "parameters": {
             "imageTargetName": "stamp1",
-            "redirectUrl": "/frontend/play.html?stamp=stamp1"
+            "redirectUrl": "frontend/play.html?stamp=stamp1"
           }
         }
       },
@@ -1233,7 +1233,7 @@
           "name": "Redirect on Image Target Found",
           "parameters": {
             "imageTargetName": "stamp2",
-            "redirectUrl": "/frontend/play.html?stamp=stamp2"
+            "redirectUrl": "frontend/play.html?stamp=stamp2"
           }
         }
       },
@@ -1267,7 +1267,7 @@
           "name": "Redirect on Image Target Found",
           "parameters": {
             "imageTargetName": "stamp3",
-            "redirectUrl": "/frontend/play.html?stamp=stamp3"
+            "redirectUrl": "frontend/play.html?stamp=stamp3"
           }
         }
       },
@@ -1301,7 +1301,7 @@
           "name": "Redirect on Image Target Found",
           "parameters": {
             "imageTargetName": "stamp4",
-            "redirectUrl": "/frontend/play.html?stamp=stamp4"
+            "redirectUrl": "frontend/play.html?stamp=stamp4"
           }
         }
       },
@@ -1335,7 +1335,7 @@
           "name": "Redirect on Image Target Found",
           "parameters": {
             "imageTargetName": "stamp5",
-            "redirectUrl": "/frontend/play.html?stamp=stamp5"
+            "redirectUrl": "frontend/play.html?stamp=stamp5"
           }
         }
       },
@@ -1369,7 +1369,7 @@
           "name": "Redirect on Image Target Found",
           "parameters": {
             "imageTargetName": "stamp1irl",
-            "redirectUrl": "/frontend/play.html?stamp=stamp1"
+            "redirectUrl": "frontend/play.html?stamp=stamp1"
           }
         }
       },
@@ -1403,7 +1403,7 @@
           "name": "Redirect on Image Target Found",
           "parameters": {
             "imageTargetName": "stamp2irl",
-            "redirectUrl": "/frontend/play.html?stamp=stamp2"
+            "redirectUrl": "frontend/play.html?stamp=stamp2"
           }
         }
       },
@@ -1437,7 +1437,7 @@
           "name": "Redirect on Image Target Found",
           "parameters": {
             "imageTargetName": "stamp3irl",
-            "redirectUrl": "/frontend/play.html?stamp=stamp3"
+            "redirectUrl": "frontend/play.html?stamp=stamp3"
           }
         }
       },
@@ -1471,7 +1471,7 @@
           "name": "Redirect on Image Target Found",
           "parameters": {
             "imageTargetName": "stamp4irl",
-            "redirectUrl": "/frontend/play.html?stamp=stamp4"
+            "redirectUrl": "frontend/play.html?stamp=stamp4"
           }
         }
       },
@@ -1505,7 +1505,7 @@
           "name": "Redirect on Image Target Found",
           "parameters": {
             "imageTargetName": "stamp5irl",
-            "redirectUrl": "/frontend/play.html?stamp=stamp5"
+            "redirectUrl": "frontend/play.html?stamp=stamp5"
           }
         }
       },
