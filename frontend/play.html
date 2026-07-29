@@ -9,10 +9,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/addons/p5.sound.min.js"></script>
-    <script
-      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js"
-      type="module"
-    ></script>
     <style>
       
       #celebrationShell #traceTitle,
@@ -20,6 +16,13 @@
         width: 100%;
         max-width: 100%;
         text-align: center;
+      }
+
+      #playStage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
       }
 
       #playStage #sealName {
@@ -72,6 +75,43 @@
         font-size: var(--reading-font-size);
         color: #402725;
         margin: 0;
+      }
+
+      .stamp-loader {
+        position: relative;
+        width: 64px;
+        height: 64px;
+      }
+
+      .stamp-loader::before,
+      .stamp-loader::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 6px solid transparent;
+      }
+
+      .stamp-loader::before {
+        border-color: rgba(64, 39, 37, 0.15);
+      }
+
+      .stamp-loader::after {
+        border-top-color: rgb(184, 44, 39);
+        border-right-color: rgb(184, 44, 39);
+        animation: stamp-loader-spin 0.9s cubic-bezier(0.6, 0.2, 0.4, 0.8) infinite;
+      }
+
+      @keyframes stamp-loader-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .stamp-loader::after {
+          animation-duration: 1.8s;
+        }
       }
 
       #p5_loading {
@@ -216,12 +256,7 @@
           </div>
           <div id="canvasWrap">
             <div id="loadingScreen">
-              <dotlottie-wc
-                src="https://lottie.host/45c27a83-e243-4525-b16d-c7cc7bcde5da/sV6alHE1d2.lottie"
-                style="width: 300px; height: 300px"
-                autoplay
-                loop
-              ></dotlottie-wc>
+              <div class="stamp-loader" aria-hidden="true"></div>
               <p id="loading">Loading...</p>
             </div>
           </div>

@@ -49,30 +49,32 @@ const sizeButtons = document.querySelectorAll(".size-btn");
     window.speechSynthesis.speak(speech);
   }
 
-  readPageBtn.addEventListener("click", function () {
-    const title = document.getElementById("stampTitle").innerText;
-    const subtitle = document.querySelector(".subtitle").innerText;
+  if (readPageBtn && pauseAudioBtn && resumeAudioBtn) {
+    readPageBtn.addEventListener("click", function () {
+      const title = document.getElementById("stampTitle").innerText;
+      const subtitle = document.querySelector(".subtitle").innerText;
 
-    const descriptions = document.querySelectorAll(".description");
+      const descriptions = document.querySelectorAll(".description");
 
 
-    let pageText = title + ". " + subtitle + ". ";
-    //pageText += "Seal information. " + infoList + ". ";
+      let pageText = title + ". " + subtitle + ". ";
+      //pageText += "Seal information. " + infoList + ". ";
 
-    descriptions.forEach(function (section) {
-      pageText += section.innerText + " ";
+      descriptions.forEach(function (section) {
+        pageText += section.innerText + " ";
+      });
+
+      readText(pageText);
     });
 
-    readText(pageText);
-  });
+    pauseAudioBtn.addEventListener("click", function () {
+      window.speechSynthesis.pause();
+    });
 
-  pauseAudioBtn.addEventListener("click", function () {
-    window.speechSynthesis.pause();
-  });
-
-  resumeAudioBtn.addEventListener("click", function () {
-    window.speechSynthesis.resume();
-  });
+    resumeAudioBtn.addEventListener("click", function () {
+      window.speechSynthesis.resume();
+    });
+  }
 
 const allLinks = document.querySelectorAll("a");
 
