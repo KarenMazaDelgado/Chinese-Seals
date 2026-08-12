@@ -8,3 +8,10 @@ Thumbs.db
 
 # Dev SSL cache (webpack-dev-server)
 /scanner/node_modules/.cache/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
